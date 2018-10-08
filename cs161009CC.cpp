@@ -2,7 +2,7 @@
 #include<fstream>
 using namespace std;
 //did nothing
-
+//Ehti was here
 //fiza was here
 int main (){
 
