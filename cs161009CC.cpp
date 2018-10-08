@@ -2,6 +2,8 @@
 #include<fstream>
 using namespace std;
 
+
+//fiza was here
 int main (){
 
     string word;
