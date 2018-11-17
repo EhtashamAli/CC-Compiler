@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1542459581 source:c:\users\acer\desktop\cc\compiler\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"Token.h"
+
+1542459367 source:c:\users\acer\desktop\cc\compiler\src\token.cpp
+	"Token.h"
+
+1542459402 c:\users\acer\desktop\cc\compiler\include\token.h
+	<string>
+	<fstream>
+	<iostream>
+
