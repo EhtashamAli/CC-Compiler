@@ -9,21 +9,30 @@ using namespace std;
 
 
 class Token{
+private:
+    ofstream output;
 public:
-    bool isSymbol(int x);
-    string isString(string str);
-    bool isIdentifier(char ch);
-    bool isOperator(char ch);
-    bool isDigit(char ch);
-    bool isKeyword(string word);
+    Token();
+    ~Token();
 
-    void writeSymbol(string tokenChar);
-    void writeidentifier(string tokenId);
-    void writeKeyword(string kw);
-    void writeOperator(string op);
-    void writeDigit(string number);
-    void writeFloat(string number);
-    void writeString(string word);
+    bool isSymbol(int);
+    string isString(string);
+    bool isIdentifier(char);
+    bool isOperator(char);
+    bool isDigit(char);
+    bool isKeyword(string);
+    void checkWord(string);
+
+    void openTokenFile (); // opens the token file
+    void writeSymbol(string);
+    void writeidentifier(string);
+    void writeKeyword(string);
+    void writeOperator(string);
+    void writeDigit(string);
+    void writeFloat(string);
+    void writeString(string);
+    void writeNewLine();
+    void writeToken(string,string);//writes to file
 };
 
 

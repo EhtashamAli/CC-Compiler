@@ -1,15 +1,40 @@
 # depslib dependency file v1.0
-1542459581 source:c:\users\acer\desktop\cc\compiler\main.cpp
+1542806749 source:c:\users\acer\desktop\cc\compiler\main.cpp
 	<iostream>
 	<string>
 	<fstream>
 	"Token.h"
 
-1542459367 source:c:\users\acer\desktop\cc\compiler\src\token.cpp
+1542806956 source:c:\users\acer\desktop\cc\compiler\src\token.cpp
 	"Token.h"
 
-1542459402 c:\users\acer\desktop\cc\compiler\include\token.h
+1542806917 c:\users\acer\desktop\cc\compiler\include\token.h
 	<string>
 	<fstream>
 	<iostream>
+
+1543053773 source:c:\users\acer\desktop\cc-compiler\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"Token.h"
+	"Syntax.h"
+
+1542985304 c:\users\acer\desktop\cc-compiler\include\token.h
+	<string>
+	<fstream>
+	<iostream>
+
+1543050335 source:c:\users\acer\desktop\cc-compiler\src\token.cpp
+	"Token.h"
+
+1542897075 source:c:\users\acer\desktop\cc-compiler\src\syntex.c
+
+1543053621 c:\users\acer\desktop\cc-compiler\include\syntax.h
+	<string>
+	<fstream>
+	<iostream>
+
+1543053600 source:c:\users\acer\desktop\cc-compiler\src\syntax.cpp
+	"Syntax.h"
 

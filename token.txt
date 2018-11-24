@@ -1,549 +1,105 @@
-<string:Enter number for table \n>
-<string:Enter value of n>
-<symbol, # >
-<kw ,header >
-<symbol, { >
-<kw ,iostream >
-<symbol, } >
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<op ,* >
-<op ,> >
-<id , @num>
-<symbol, ; >
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
-<string:Enter number for table \n>
-<string:Enter value of n>
-<kw ,using >
-<kw ,namespace >
-<kw ,std >
-<symbol, ; >
-<kw ,digit >
-<kw ,container >
-<symbol, (){ >
-<kw ,digit >
-<id , @num>
-<symbol, , >
-<id , n>
-<symbol, , >
-<id , ans>
-<op ,= >
-int:146890649
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, \ >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , num>
-<symbol, ; >
-<kw ,output >
-<symbol, : >
-<symbol, ; >
-<kw ,input >
-<symbol, : >
-<id , n>
-<symbol, ; >
-<kw ,loop >
-<symbol, ( >
-<id , int>
-<id , i>
-<op ,= >
-int:1
-<symbol, ; >
-<id , i>
-<op ,< >
-<id , n>
-<symbol, ; >
-<id , i>
-<op ,++ >
-<symbol, ) >
-<symbol, { >
-<id , ans>
-<op ,== >
-<id , ans>
-<kw ,output >
-<op ,- >
-<id , ans>
-<symbol, ; >
-<symbol, } >
-<kw ,return >
-<kw ,empty >
-<symbol, ; >
-<symbol, } >
+<symbol, #>
+<kw, header>
+<symbol, {>
+<kw, iostream>
+<symbol, }>
+<symbol, newline>
+<kw, using>
+<symbol, sp>
+<kw, namespace>
+<symbol, sp>
+<kw, std>
+<symbol, ;>
+<symbol, newline>
+<kw, digit>
+<symbol, sp>
+<kw, container>
+<symbol, (>
+<symbol, )>
+<symbol, {>
+<symbol, newline>
+<kw, digit>
+<symbol, sp>
+<id, @num>
+<symbol, ,>
+<id, n>
+<symbol, ,>
+<id, ans>
+<op, =>
+<int, 146890649>
+<symbol, ;>
+<symbol, newline>
+<kw, output>
+<symbol, :>
+<string, Enter number for table \n>
+<symbol, ;>
+<symbol, sp>
+<kw, input>
+<symbol, :>
+<symbol, sp>
+<id, num>
+<symbol, ;>
+<symbol, newline>
+<kw, output>
+<symbol, :>
+<string, Enter value of n>
+<symbol, ;>
+<symbol, newline>
+<kw, input>
+<symbol, :>
+<id, n>
+<symbol, ;>
+<symbol, newline>
+<kw, loop>
+<symbol, (>
+<id, int>
+<symbol, sp>
+<id, i>
+<op, =>
+<int, 1>
+<symbol, ;>
+<symbol, sp>
+<id, i>
+<op, <>
+<id, n>
+<symbol, ;>
+<symbol, sp>
+<id, i>
+<op, ++>
+<symbol, )>
+<symbol, newline>
+<symbol, {>
+<symbol, newline>
+<id, 	ans>
+<op, ==>
+<id, ans>
+<symbol, newline>
+<id, 	if>
+<symbol, (>
+<id, ans>
+<op, >>
+<int, 0>
+<symbol, )>
+<symbol, newline>
+<id, 	output>
+<symbol, :>
+<string, ans>
+<symbol, ;>
+<symbol, newline>
+<id, 	else>
+<symbol, sp>
+<symbol, newline>
+<id, 	output>
+<symbol, :>
+<string, neg>
+<symbol, ;>
+<symbol, newline>
+<symbol, }>
+<symbol, newline>
+<kw, return>
+<symbol, sp>
+<kw, empty>
+<symbol, ;>
+<symbol, newline>
+<symbol, }>
+<symbol, newline>
