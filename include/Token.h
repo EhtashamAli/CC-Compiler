@@ -21,7 +21,7 @@ public:
     bool isOperator(char);
     bool isDigit(char);
     bool isKeyword(string);
-    void checkWord(string);
+    bool checkWord(string);
 
     void openTokenFile (); // opens the token file
     void writeSymbol(string);

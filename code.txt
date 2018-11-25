@@ -1,10 +1,10 @@
 #header{iostream}
 using namespace std;
 digit container(){
-digit @1num,1ssn,ans=1468..0.649;
+digit @1, num, @1ssn,ans=1468649;
 output:"Enter number for table \n"; input: num;
 output:"Enter value of n";
-input:1n;
+input:n;
 loop(int i=1; i<n; i+-)
 {
 	ans==ans*>@1num;

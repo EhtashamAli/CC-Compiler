@@ -22,7 +22,8 @@ int main () {
          cout<<i+1<<"\t";
          cout<<line<<endl;
          cout<<"____________________________"<<endl;
-        t.checkWord(line);
+        int check=t.checkWord(line);
+        if(check==0){cout<<"error in line: "<<i+1<<endl;break;}
         cout<<"____________________________"<<endl;
         i++;
      }
