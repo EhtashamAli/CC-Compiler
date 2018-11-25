@@ -19,10 +19,11 @@ int main () {
   //opening file again for further tokenization
     while (getline(input, line))
      {
-         //cout<<i+1<<endl;
-        // cout<<"____________________________"<<endl;
+         cout<<i+1<<"\t";
+         cout<<line<<endl;
+         cout<<"____________________________"<<endl;
         t.checkWord(line);
-       // cout<<"____________________________"<<endl;
+        cout<<"____________________________"<<endl;
         i++;
      }
     }
@@ -39,7 +40,7 @@ if(SYNTAX_FILE.is_open())
         while (getline(SYNTAX_FILE, line))
          {
              //cout<<line<<endl;
-             s.isLoop(line);
+             s.tokenParse(line,i);
              i++;
          }
     }

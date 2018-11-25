@@ -122,6 +122,8 @@ void Token::checkWord(string word)
     int n;
     int count=0;
     int flag =0;
+    int error=0;
+    int breakCount =0;
     int decimalCount=0;
     int negCount=0;
     int lineCount=0;
@@ -143,33 +145,40 @@ void Token::checkWord(string word)
             {
                 char x=word[i];
 
+
                     if(isDigit((int)x))
                     {
-                            if(word[i-1]=='-'){ //checks if the number is negative
+                            if(word[i-1]=='-')
+                            { //checks if the number is negative
                                 digit+=word[i-1];
                                 digit+=word[i];
-                                i++;
                             }
                             if(word[i+1]=='.') //checks if the number is a float
-                             {
+                            {
                                 digit+=word[i];
                                 digit+=word[i+1];
-                                decimalCount=1;
+                                decimalCount++;
                                 i++;
-                            }
-                            else digit+=word[i];
 
-                            if((isDigit((int)word[i+1]))==0) //writes a float
+                            }
+                            else
+                            {
+                                digit+=word[i];
+                            }
+
+                            if((isDigit((int)word[i+1]))==false && word[i]!='.') //writes a float
                                 {
+                                    cout<<"decimalCount: "<<decimalCount<<endl;
                                     if(decimalCount==1)
                                     {
-                                    //cout<<"float          "<<digit<<endl;
+                                    cout<<"float          "<<digit<<endl;
                                     writeFloat(digit);
-
                                     }
+                                    else if(decimalCount>1)
+                                        cout<<"error";
                                     else
                                     {
-                                        //cout<<"decimal    "<<digit<<endl;
+                                        cout<<"decimal    "<<digit<<endl;
                                         writeDigit(digit); //writes  a decimal
                                     }
                                 digit.clear();
@@ -183,80 +192,101 @@ void Token::checkWord(string word)
                         else{
                             if((flag==0)||(flag==2))
                                 {
-                                tokenChar = word[i];
-                                if (tokenChar== " ")
-                                {
-                                    //cout<<"symbol        "<<"space"<<endl;
-                                }
-                                else
-                               {
-                                  // cout<<"symbol    "<<tokenChar<<endl;
-                                }
-                                writeSymbol(tokenChar);
-                                flag=0;
+                                    tokenChar = word[i];
+                                    if (tokenChar== " ")
+                                    {
+                                        cout<<"symbol        "<<"space"<<endl;
+                                    }
+                                    else
+                                    {
+                                       cout<<"symbol    "<<tokenChar<<endl;
+                                    }
+                                    writeSymbol(tokenChar);
+                                    flag=0;
                                 }
                         }
                     }
                     else if(isOperator((int) x))//operator token
                     {
-                        oper = word[i];
-                        if((word[i+1]=='=')||((word[i+1]=='+')||(word[i+1]=='-'))) //This condition checks if we have '>,<' after =
-                        {
-                            oper += word[i+1];
-                             i++; //so that it doesnt count = separate .
-                        }
-                        if((word[i+1]=='<')||(word[i+1]=='>')) //This condition checks if we have = after <,>,=
+                        //if(!isOperator((int)word[i+1])){oper = word[i];}
+
+                            if( (word[i]=='=') && ( (word[i-1]=='<')||(word[i-1]=='>')||(word[i-1]=='=') || (word[i-1]=='+')||(word[i-1]=='-'))) //This condition checks if we have <= , >= or ==
                             {
-                                //cout<<"error  in line : "<<1+i<<endl;
-                                break;
+                                oper+=word[i-1]; //i-1 can have < > ,+ ,-
+                                oper+= word[i];
+                                 i++; //so that it doesnt count = separate .
                             }
-                            //cout<<"operator              "<<oper<<endl;
+                            else if((word[i]=='+')&&(word[i+1]=='+'))
+                            {
+                            oper += word[i];
+                            oper += word[i+1];
+                             i++;
+                            }
+                            else if((word[i]=='-')&&(word[i+1]=='-'))
+                            {
+                            oper+=word[i];
+                            oper += word[i+1];
+                            i++;
+                             }
+                            else if(!isOperator((int)word[i+1])){oper = word[i];}
+
+                            cout<<"operator              "<<oper<<endl;
                             writeOperator(oper);
                             tokenId.clear(); // for a==b; case
                             oper.clear();
                     }
-                    else {
-                        if(word[i]=='"'){
-
+                    else { //string check
+                        if(word[i]=='"')
+                        {
                                 flag++;
-                                if(flag==2){
+
+                                if(flag==2)
+                                {
                                 writeString(strings);
-                                //cout<<"string  ''"<<strings<<"''"<<endl;
+                                cout<<"string  ''"<<strings<<"''"<<endl;
                                 strings.clear();
-                            }
-                            }
-                        else{
-                           if((flag==0)||(flag==2))
-                            {
-                                   if((word[i]=='@')|| ((word[i]>='A') && (word[i]<='Z')) || ((word[i]>='a') && (word[i] <='z'))|| (word[i]!='\t') ||(word[i]!=' '))//identifier token
+                                }
+                        }
+                        else{ //keyword and identifier check
+                               if((flag==0)||(flag==2))
+                                {
+                                    if((word[i]=='@')|| ((word[i]>='A') && (word[i]<='Z')) || ((word[i]>='a') && (word[i] <='z'))|| (word[i]!='\t') ||(word[i]!=' '))//identifier token
                                     {
-                                        if ((word[i]>='0')&&(word[i]<='9'))//if ientifier ha a number
-                                            tokenId+= word[i]; //adds character into identifier string
+
+                                       // if((word[i-1]==',')&&(1 == isDigit((int)word[i]))){breakCount=1;}
+
+                                        if ((word[i+1]>='0')&&(word[i+1]<='9')){//if ientifier ha a number
+                                            tokenId+= word[i];
+                                            tokenId+= word[i+1]; //adds character into identifier string
+                                            i++;
+                                            }
                                         else
-                                        tokenId+= word[i]; //adds character into identifier string
+                                            tokenId+= word[i]; //adds character into identifier string
+                                         if((tokenId.length()>0)&&( (1 == (isOperator((int)word[i+1]) )) || (1 == (isSymbol((int)word[i+1]) ))||( (i+1) == word.length())) ) //keyword and identifier check
+                                        {
+                                                if(isKeyword(tokenId))
+                                                {
+                                                    cout<<"keyword      "<<tokenId<<endl;
+                                                    writeKeyword(tokenId); //writes keyword into file
+                                                }
+                                                else
+                                                {
+                                                    writeidentifier(tokenId); //writes identifier into file
+                                                    cout<<"identifier    "<<tokenId<<endl;
+                                                }
+                                                if(flag==2)
+                                                flag=0;
+                                                 tokenId.clear();
+                                        }
                                     }
-                                     if((tokenId.length()>0)&&( (1 == (isOperator((int)word[i+1]) )) || (1 == (isSymbol((int)word[i+1]) ))||( (i+1) == word.length())) ) //keyword and identifier check
-                                    {
-                                            if(isKeyword(tokenId))
-                                            {
-                                                //cout<<"keyword      "<<tokenId<<endl;
-                                                writeKeyword(tokenId); //writes keyword into file
-                                            }
-                                            else
-                                            {
-                                                writeidentifier(tokenId); //writes identifier into file
-                                                //cout<<"identifier    "<<tokenId<<endl;
-                                            }
-                                            if(flag==2)
-                                            flag=0;
-                                             tokenId.clear();
-                                    }
+
                                 }
                             }
+
+                            }
+i++;
                         }
-                i++;
-                }
-                 decimalCount=0;
+
                 tokenId.clear();
                 writeNewLine();
           }
