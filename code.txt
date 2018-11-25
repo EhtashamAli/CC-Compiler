@@ -5,7 +5,7 @@ digit @1, num, @1ssn,ans=1468649;
 output:"Enter number for table \n"; input: num;
 output:"Enter value of n";
 input:n;
-loop(int i=1; i<n; i+-)
+loop(int i=1i<n; i++)
 {
 	ans==ans*>@1num;
 	if(ans>0)

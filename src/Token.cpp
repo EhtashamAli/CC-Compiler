@@ -164,7 +164,7 @@ bool Token::checkWord(string word)
                                 {
                                     if(decimalCount==1)
                                     {
-                                    cout<<"float          "<<digit<<endl;
+                                    //cout<<"float          "<<digit<<endl;
                                     writeFloat(digit);
                                     }
                                     else if(decimalCount>1){
@@ -173,7 +173,7 @@ bool Token::checkWord(string word)
                                         }
                                     else
                                     {
-                                        cout<<"decimal    "<<digit<<endl;
+                                        //cout<<"decimal    "<<digit<<endl;
                                         writeDigit(digit); //writes  a decimal
                                     }
                                 digit.clear();
@@ -191,11 +191,11 @@ bool Token::checkWord(string word)
                                     tokenChar = word[i];
                                     if (tokenChar== " ")
                                     {
-                                        cout<<"symbol       "<<"space"<<endl;
+                                       // cout<<"symbol       "<<"space"<<endl;
                                     }
                                     else
                                     {
-                                       cout<<"symbol        "<<tokenChar<<endl;
+                                       //cout<<"symbol        "<<tokenChar<<endl;
                                     }
                                     writeSymbol(tokenChar);
                                     flag=0;
@@ -227,7 +227,7 @@ bool Token::checkWord(string word)
                             {
                                 if(oper.length()>0)
                                     {
-                                    cout<<"operator              "<<oper<<endl;
+                                    //cout<<"operator              "<<oper<<endl;
                                     writeOperator(oper);
                                     }
                                 else{breakCount++;
@@ -244,7 +244,7 @@ bool Token::checkWord(string word)
                                 if(flag==2)
                                 {
                                 writeString(strings);
-                                cout<<"string  ''"<<strings<<"''"<<endl;
+                                //cout<<"string  ''"<<strings<<"''"<<endl;
                                 strings.clear();
                                 }
                         }
@@ -261,14 +261,14 @@ bool Token::checkWord(string word)
                                             }
                                         else
                                             tokenId+= word[i]; //adds character into identifier string
-                                                //cout<<"start:"<<start<<endl;
+
 
                                             if((tokenId.length()>0)&&( (1 == (isOperator((int)word[i+1]) )) || (1 == (isSymbol((int)word[i+1]) ))||( (i+1) == word.length())) ) //keyword and identifier check
                                             {
                                                 if(isKeyword(tokenId))
                                                 {
 
-                                                    cout<<"keyword      "<<tokenId<<endl;
+                                                    //cout<<"keyword      "<<tokenId<<endl;
                                                     writeKeyword(tokenId); //writes keyword into file
 
                                                 }
@@ -281,7 +281,7 @@ bool Token::checkWord(string word)
                                                     }
                                                     else
                                                     writeidentifier(tokenId); //writes identifier into file
-                                                    cout<<"identifier    "<<tokenId<<endl;
+                                                    //cout<<"identifier    "<<tokenId<<endl;
                                                 }
                                                 if(flag==2)
                                                 flag=0;

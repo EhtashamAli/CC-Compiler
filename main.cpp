@@ -21,10 +21,10 @@ int main () {
      {
          cout<<i+1<<"\t";
          cout<<line<<endl;
-         cout<<"____________________________"<<endl;
+         //cout<<"____________________________"<<endl;
         int check=t.checkWord(line);
         if(check==0){cout<<"error in line: "<<i+1<<endl;break;}
-        cout<<"____________________________"<<endl;
+        //cout<<"____________________________"<<endl;
         i++;
      }
     }
@@ -33,6 +33,7 @@ int main () {
     input.close();
     }
     //...........................................................
+  //...........................................................
 fstream SYNTAX_FILE("token.txt");
 if(SYNTAX_FILE.is_open())
     {
@@ -41,9 +42,11 @@ if(SYNTAX_FILE.is_open())
         while (getline(SYNTAX_FILE, line))
          {
              //cout<<line<<endl;
-             s.tokenParse(line,i);
-             i++;
+             s.tokenParseAndAdd(line);
          }
+         SYNTAX_FILE.close();
+         cout<<"total tokens: "<< s.getTokenCount()<<endl;
+         s.parseGrammar();
     }
     else{
     cout<<"error opening token.txt file";
