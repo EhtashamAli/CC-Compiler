@@ -59,7 +59,7 @@ bool Token::isIdentifier(char ch)
 		return false;
 }
 bool Token::isOperator(char ch) {
-	if ((ch == '%') || (ch == '*') || (ch == '+') || (ch == '-') || (ch == '/') ||
+	if ((ch == '!')||(ch == '%') || (ch == '*') || (ch == '+') || (ch == '-') || (ch == '/') ||
 		((ch >= '<') && (ch <= '>'))) //for unary operators
 		return true;
 	else
@@ -202,15 +202,21 @@ bool Token::checkWord(string word)
                                 }
                         }
                     }
-                    else if(isOperator((int) x))//operator token
+                    else if(isOperator((int)x))//operator token
                     {
-                        if(!isOperator(word[i-1])&& !isOperator(word[i+1]) && isOperator(word[i]) ) oper= word[i];
-                        if( (word[i]=='=') && ( (word[i-1]=='<')||(word[i-1]=='>')||(word[i-1]=='=') || (word[i-1]=='+')||(word[i-1]=='-'))) //This condition checks if we have <= , >= or ==
-  //This condition checks if we have <= , >= or ==
+                            if(word[i+1]=='=' && word[i]=='=')
+                                {
+                                    oper +=word[i];
+                                    oper +=word[i+1];
+                                    i=i+1;
+                                }
+                            else if((1==isOperator(word[i-1]))&& word[i]=='=') //This condition checks if we have <= , >= or ==
                             {
                                 oper+=word[i-1]; //i-1 can have < > ,+ ,-
                                 oper+= word[i];
                                  i++; //so that it doesnt count = separate .
+
+
                             }
                             else if((word[i]=='+')&&(word[i+1]=='+'))
                             {
@@ -224,14 +230,21 @@ bool Token::checkWord(string word)
                             oper += word[i+1];
                             i++;
                              }
-                            else if(!isOperator((int)word[i+1])){oper = word[i];}
-
-                            cout<<"operator              "<<oper<<endl;
-                            writeOperator(oper);
-                            tokenId.clear(); // for a==b; case
-                            oper.clear();
+                             else if(isOperator(word[i])&&((!isOperator(word[i+1])&&(!isOperator(word[i-1])))))
+                                      oper=word[i];
+                             else {breakCount++;break;}
+                           // else {breakCount++;break;}
+                            if(!isOperator((int)word[i+1]))
+                            {
+                                if(oper.length()>0)
+                                    {
+                                    cout<<"operator              "<<oper<<endl;
+                                    writeOperator(oper);
+                                    }
+                                tokenId.clear(); // for a==b; case
+                                oper.clear();
+                            }
                     }
-
                     else { //string check
                         if(word[i]=='"')
                         {
@@ -253,7 +266,7 @@ bool Token::checkWord(string word)
                                         if ((word[i+1]>='0')&&(word[i+1]<='9')){//if ientifier ha a number
                                             tokenId+= word[i];
                                             tokenId+= word[i+1]; //adds character into identifier string
-                                            i++;
+                                            i=i+2;
                                             }
 
                                             tokenId+= word[i]; //adds character into identifier string
