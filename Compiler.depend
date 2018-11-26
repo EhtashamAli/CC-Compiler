@@ -38,3 +38,26 @@
 1543239382 source:c:\users\acer\desktop\cc-compiler\src\syntax.cpp
 	"Syntax.h"
 
+1543223872 source:c:\users\ehtasham ali\desktop\cc-compiler\src\token.cpp
+	"Token.h"
+
+1543223872 c:\users\ehtasham ali\desktop\cc-compiler\include\token.h
+	<string>
+	<fstream>
+	<iostream>
+
+1543226754 source:c:\users\ehtasham ali\desktop\cc-compiler\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"Token.h"
+	"Syntax.h"
+
+1543226712 c:\users\ehtasham ali\desktop\cc-compiler\include\syntax.h
+	<string>
+	<fstream>
+	<iostream>
+
+1543227002 source:c:\users\ehtasham ali\desktop\cc-compiler\src\syntax.cpp
+	"Syntax.h"
+
