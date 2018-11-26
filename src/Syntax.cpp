@@ -1,90 +1,44 @@
 #include "Syntax.h"
 
-void Syntax::parseGrammar()
-{
-    for(int i=0; i < tokenDataSize; i++)
-    {
-        if(tokenArray[i].value == "loop")
-        {
-            parseLoop(i);
-        }
-        /*
-        if(tokenArray[i].name == "id")
-        {
-            parseIdentifier(i);
-        }
-        */
-    }
-}
-
-void Syntax::parseForLoopCondition(int &index)
-{
-    int i=index;
-    while(tokenArray[i] != ')' || tokenArray[i] !='{')
-    {
-
-    }
-}
-
-void Syntax::parseLoop(int &index)
-{
-    cout<<"loop started on line:"<< tokenArray[index].line <<endl;
-    int i = index;
-
-    cout<<endl<<"loop condition: ";
-    if(tokenArray[i].value != "{")
-    {
-        parseForLoopCondition(index);
-    }
-
-
-    cout<<endl<<"loop body: ";
-    while(tokenArray[i].value != "}")
-    {
-        cout<<tokenArray[i].value <<" ";
-        ++i;
-    }
-    cout<<endl<<"loop ended on "<<tokenArray[i].line<<endl;
-    index = i + 1;
-}
-
-
-void Syntax::tokenParseAndAdd(string token){
-    TokenData newToken;
+void Syntax::tokenParse(string token , int j){
+    string name;
+    string val;
     int i=1;
     if(token[0]=='<')
     {
-        while(token[i] != ',')
-        {
-            newToken.name += token[i];
+        while(token[i]!= ',')
+            {
+            name+=token[i];
             i++;
-        }
-        i+=2;
-        while(token[i] != '>')
-        {
-            newToken.value += token[i];
+            }
+        i++;
+        while(token[i]!='>')
+            {
+            val+=token[i];
             i++;
-        }
+            }
     }
-    if(newToken.name == "symbol" && newToken.value=="newline")
-        currentLineNumber++;
-
-    newToken.line = currentLineNumber;
-    //cout<<"new: "<<newToken.name<<", "<<newToken.value<<", "<<newToken.line<<endl;
-    tokenArray[tokenDataSize] = newToken;
-    ++tokenDataSize;
+    tokenName[j] = name;
+    tokenVal[j] = val;
 }
-
-int Syntax::getTokenCount()
+string Syntax::getTokenName(){
+   // return tokenName;
+}
+string Syntax::getTokenVal(){
+  //  return tokenVal;
+}
+/*
+bool Syntax::isLoop()
 {
-    return tokenDataSize;
+    string name = getTokenName();
+    string val = getTokenVal();
+    int i=0;
+      int index;
+    while(name[i] == 'kw' && val[i] == 'loop')) {
+        index = i;
+        i++;
+        }
+           cout << index<<endl;
 }
 
-TokenData Syntax::getToken(int index)
-{
-    if(index < 0 || index >= tokenDataSize)
-        cout<<"Error: Index(" << index << ") out of bound!"<<endl;
-    return tokenArray[index];
-}
-
-
+*/

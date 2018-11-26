@@ -7,34 +7,19 @@
 
 using namespace std;
 
-struct TokenData
-{
-    int line;
-    string name;
-    string value;
-};
 
 class Syntax
 {
     private:
-        TokenData tokenArray[10000];
-        int tokenDataSize;
-        int currentLineNumber;
+        string tokenName[1000];
+        string tokenVal[1000];
 
     public:
-        Syntax(){tokenDataSize = 0; currentLineNumber=1;}
-        void tokenParseAndAdd(string);
-        int getTokenCount();
-        TokenData getToken(int index);
-
-        void parseGrammar();
-
-        void parseLoop(int &index);
-        void parseForLoopCondition(int &index);
-
-
-
-
+    void openTokenFile();
+    void isLoop(string);
+    void tokenParse(string,int);
+    string getTokenName();
+    string getTokenVal();
 
 };
-#endif // SYNTAX_H
+#endif

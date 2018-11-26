@@ -10,7 +10,7 @@ using namespace std;
 int main () {
     string line;
     Token t;
-    Syntax s;
+    //Syntax s;
 
     ifstream input("code.txt");
     if(input.is_open())
@@ -21,10 +21,10 @@ int main () {
      {
          cout<<i+1<<"\t";
          cout<<line<<endl;
-         //cout<<"____________________________"<<endl;
+         cout<<"____________________________"<<endl;
         int check=t.checkWord(line);
         if(check==0){cout<<"error in line: "<<i+1<<endl;break;}
-        //cout<<"____________________________"<<endl;
+        cout<<"____________________________"<<endl;
         i++;
      }
     }
@@ -42,11 +42,11 @@ if(SYNTAX_FILE.is_open())
         while (getline(SYNTAX_FILE, line))
          {
              //cout<<line<<endl;
-             s.tokenParseAndAdd(line);
+//             s.tokenParseAndAdd(line);
          }
          SYNTAX_FILE.close();
-         cout<<"total tokens: "<< s.getTokenCount()<<endl;
-         s.parseGrammar();
+       //  cout<<"total tokens: "<< s.getTokenCount()<<endl;
+        // s.parseGrammar();
     }
     else{
     cout<<"error opening token.txt file";
