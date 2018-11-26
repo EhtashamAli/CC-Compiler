@@ -10,10 +10,9 @@ using namespace std;
 int main () {
     string line;
     Token t;
-    Syntax S;
     //Syntax s;
 
-   ifstream input("code.txt");
+    ifstream input("code.txt");
     if(input.is_open())
     {
         int i=0;
@@ -35,26 +34,25 @@ int main () {
     }
     //...........................................................
   //...........................................................
-
 fstream SYNTAX_FILE("token.txt");
 if(SYNTAX_FILE.is_open())
     {
-        int i=0;
+            int i=0;
+        //opening file again for further tokenization
         while (getline(SYNTAX_FILE, line))
          {
-             S.tokenParse(line , i);
-             i++;
+             //cout<<line<<endl;
+//             s.tokenParseAndAdd(line);
          }
          SYNTAX_FILE.close();
+       //  cout<<"total tokens: "<< s.getTokenCount()<<endl;
+        // s.parseGrammar();
     }
     else{
     cout<<"error opening token.txt file";
     input.close();
     }
 
-    if(S.isHeader()){
-        cout<<"ok"<<endl;
-    }
     return 0;
 }
 

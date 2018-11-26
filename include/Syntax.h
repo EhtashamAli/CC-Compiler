@@ -11,14 +11,15 @@ using namespace std;
 class Syntax
 {
     private:
-
-    public:
         string tokenName[1000];
         string tokenVal[1000];
 
-    bool isHeader();
-    void printData();
+    public:
+    void openTokenFile();
+    void isLoop(string);
     void tokenParse(string,int);
+    string getTokenName();
+    string getTokenVal();
 
 };
 #endif
