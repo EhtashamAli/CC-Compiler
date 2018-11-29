@@ -1,17 +1,18 @@
-#header{iostream}
+#header {iostream}
 using namespace std;
 digit container(){
-digit @1, num, @1ssn,ans=1468649;
-output:"Enter number for table \n"; input: num;
+digit  a1 ,a2 , a,num;
+output:"Enter number, for, table \n";
+ input: num;
 output:"Enter value of n";
 input:n;
-loop(int i=1;i<n; i++)
+loop(digit i=1;i<n; i++)
 {
 	ans==ans*@1num;
-	if(ans>0)
+	this(ans>0)
 	output:"ans";
-	else 
+	then
 	output:"neg";
-}
+}endloop
 return empty;
 }
