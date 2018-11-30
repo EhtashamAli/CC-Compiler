@@ -13,7 +13,7 @@
 	<fstream>
 	<iostream>
 
-1543520294 source:c:\users\acer\desktop\cc-compiler\main.cpp
+1543606437 source:c:\users\acer\desktop\cc-compiler\main.cpp
 	<iostream>
 	<string>
 	<fstream>
@@ -25,17 +25,18 @@
 	<fstream>
 	<iostream>
 
-1543552999 source:c:\users\acer\desktop\cc-compiler\src\token.cpp
+1543609201 source:c:\users\acer\desktop\cc-compiler\src\token.cpp
 	"Token.h"
 
 1542897075 source:c:\users\acer\desktop\cc-compiler\src\syntex.c
 
-1543515681 c:\users\acer\desktop\cc-compiler\include\syntax.h
+1543609268 c:\users\acer\desktop\cc-compiler\include\syntax.h
 	<string>
 	<fstream>
 	<iostream>
 	<sstream>
+	<regex>
 
-1543556037 source:c:\users\acer\desktop\cc-compiler\src\syntax.cpp
+1543610279 source:c:\users\acer\desktop\cc-compiler\src\syntax.cpp
 	"Syntax.h"
 

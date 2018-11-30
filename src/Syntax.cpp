@@ -1,11 +1,5 @@
 #include "Syntax.h"
 
-void Syntax::printData(){
-    for(int i=0; i <totalTokens; i++){
-        cout<<"TokenName:"<<tokenName[i]<<endl;
-        cout<<"TokenVal:"<<tokenVal[i]<<endl;
-    }
-}
 
 bool Syntax::isHeader(){
 int i=0;
@@ -137,14 +131,15 @@ bool Syntax::isDeclaration(){
                 if(tokenVal[i+3]==","){idCount--;}
                 else if(tokenVal[i+3]==";")
                     flag++;}
-                else return 0;
+                else  {return 0;}
                 }
             }
             i++;
             if(tokenVal[i]==" ")i++;
         }
         if(flag>0)return 1;
-return 0;
+
+    return 0;
 }
 
 bool Syntax::isOutput(){
@@ -159,30 +154,32 @@ bool Syntax::isOutput(){
                         i++;
                         continue;
                     } else {
-//yhan masla hai koi logic main shayad
-                        Count = i+3;
-                       while(tokenVal[Count] != ";"){
-                            cout<<tokenVal[Count];
-                        if(tokenVal[Count] == ":"){
-                            if ((std::regex_match (tokenVal[Count+1], std::regex("(.*)") )) || (tokenName[Count+1] == "id")){
-                                    if(tokenVal[Count+2] == ";") {break;}
-                                    if(tokenVal[Count+2] == ":") {Count++;}
-                                    else{
-                                        Error = true;
-                                        break;
-                                    }
-                            } else {
-                                //error break
-                                Error = true;
-                                break;
-                            }
+                        i = i+3;
+                        if(tokenVal[i] == ":"){
+                            i++;
+                                if ((std::regex_match (tokenVal[i], std::regex("(.*)") )) || (tokenName[i] == "id")){
+                                        if(tokenVal[i+1] == ";") {break;}
+                                        if(tokenVal[i+1] == ":") {i++;}
+                                        else{
+                                            cout<<"output statement Error on token"<<i<<"\t";
+                                            Error = true;
+                                            i++;
+                                            continue;
+                                        }
+                                } else {
+                                    cout<<"output statement Error on token"<<i<<"\t";
+                                    Error = true;
+                                    i++;
+                                    continue;
+                                }
                         }else{
-                                                                                                        cout<<"this";
-                                Error = true;
-                                break;
+                            cout<<"output statement Error on token"<<i<<"\t";
+                            Error = true;
+                            i++;
+                            continue;
                         }
-                        }
-                        if(Error) {cout<<"1output statement Error on token"<<Count<<"\t";Error = true;i++;continue;}
+
+                        if(Error) {cout<<"output statement Error on token"<<i<<"\t";Error = true;i++;continue;}
                         else{i++;continue;}
                     }
                 } else {
@@ -208,39 +205,76 @@ bool Syntax::isOutput(){
         return 1;
 }
 
-bool Syntax::isInput(){
-   // std::vector<int> lines;
+
+
+
+bool Syntax::isIF_ELSE() {
     bool Error = false;
-    for(int i=0; i<totalTokens ; i++){
-        if(tokenVal[i] == "input"){
-            if(tokenVal[i+1] == ":"){
-                 if(tokenName[i+2] == "id"){
-                    if(tokenVal[i+3] == ";"){
-                        continue;
+    int count = 0 ;
+    int flag = 0;
+    for(int i=0 ; i < totalTokens ; i++){
+        if(tokenVal[i] == "this"){
+            if(tokenVal[i+1] == "("){
+                if(tokenName[i+2] == "id"){
+                    if(tokenName[i+3] == "op"){
+                         if(tokenName[i+4] == "id" || tokenName[i+4] == "int"){
+                            if(tokenVal[i+5] == ")"){
+                                if(tokenVal[i+6] == "{"){
+                                    count += 1;
+                                    while(tokenVal[i] != "}") {i++;}
+                                        if(tokenVal[i] == "}"){count += 1;}
+                                    if(tokenVal[i+2] == "then"){
+                                        if(tokenVal[i+3] == "{"){
+                                            count += 1;
+                                            i++;
+                                            while(tokenVal[i] != "}") {i++;}
+                                                if(tokenVal[i] == "}"){count += 1;}
+                                        }else {
+                                            Error = true;
+                                            cout<< "ERROR ON TOKEN:"<<i<<endl;
+                                            continue;
+                                        }
+                                    }else {
+                                        Error = true;
+                                        cout<< "ERROR ON TOKEN:"<<i<<endl;
+                                        continue;
+                                    }
+                                }else {
+                                    Error = true;
+                                    cout<< "ERROR ON TOKEN:"<<i<<endl;
+                                    continue;
+                                }
+                            }else {
+                                Error = true;
+                                cout<< "ERROR ON TOKEN:"<<i<<endl;
+                                continue;
+                            }
+                         } else {
+                            Error = true;
+                            cout<< "ERROR ON TOKEN:"<<i<<endl;
+                            continue;
+                         }
                     } else {
-                    cout<<"Error on token"<<i<<"\t";
-                    Error = true;
-                    continue;
+                        Error = true;
+                        cout<< "ERROR ON TOKEN:"<<i<<endl;
+                        continue;
                     }
-                 } else {
-                    cout<<"Error on token"<<i<<"\t";
+                } else {
                     Error = true;
+                    cout<< "ERROR ON TOKEN:"<<i<<endl;
                     continue;
-                 }
+                }
             } else {
-                    cout<<"Error on token"<<i<<"\t";
-                    Error = true;
-                    continue;
+                Error = true;
+                cout<< "ERROR ON TOKEN:"<<i<<endl;
+                continue;
             }
         } else {
-           continue;
+            continue;
         }
     }
-    if(Error){
-        return 0;
-    } else {
-        return 1;
-    }
+    if((Error) || (count%2 != 0)) {cout << "Error in if else"; return 0;}
+    else return 1;
 }
 bool Syntax::isLoop(){
     int flag =0;
@@ -257,47 +291,47 @@ bool Syntax::isLoop(){
         {
         if(tokenVal[i] =="loop")
         if(tokenVal[i+1] =="(" )
-        if(tokenVal[i+2] =="digit"||"float")
-        else if(tokenName[i+2] =="id")
-            {
-
-                    if(tokenVal[i+3]=="=")
-                    if(tokenName[i+4]=="int"||"id")
-                    if(tokenVal[i+5]==";")
-                    if(tokenName[i+6]=="id")
-                    if(tokenName[i+7]=="op" )
-                    if(tokenName[i+8]=="id"||"int")
-                    if(tokenVal[i+9]==";")
-                    if(tokenName[i+10]=="id"||tokenName[i+1]=="int")
-                    if(tokenVal[i+11]=="++"||"--")
-                    if(tokenVal[i+12]==")")
-                    if(tokenVal[i+13]=="newline")
-                    if(tokenVal[i+14]=="{")
+        if(tokenVal[i+2] =="digit"||tokenVal[i+2] =="dec")
+        {
+                    if(tokenName[i+3] =="id")
+                    if(tokenVal[i+4]=="=")
+                    if(tokenName[i+5]=="int"||"id")
+                    if(tokenVal[i+6]==";")
+                    if(tokenName[i+7]=="id")
+                    if(tokenName[i+8]=="op" )
+                    if(tokenName[i+9]=="id"||"int")
+                    if(tokenVal[i+10]==";")
+                    if(tokenName[i+11]=="id"||tokenName[i+1]=="int")
+                    if(tokenVal[i+12]=="++"||"--")
+                    if(tokenVal[i+13]==")")
+                    if(tokenVal[i+14]=="newline")
+                    if(tokenVal[i+15]=="{")
 
                         braceCount++;
-                        i=i+15;
+                        i=i+16;
                         while(tokenVal[i]!="}" ){i++;}
                     if(tokenVal[i]=="}")braceCount++;
-            }
         }
-        if(tokenName[i+3]=="id")
-        if(tokenVal[i+4]=="=")
-        if(tokenName[i+5]=="int"||"id")
-        if(tokenVal[i+6]==";")
-        if(tokenName[i+7]=="id")
-        if(tokenName[i+8]=="op" )
-        if(tokenName[i+9]=="id"||"int")
-        if(tokenVal[i+10]==";")
-        if(tokenName[i+11]=="id"||tokenName[i+1]=="int")
-        if(tokenVal[i+12]=="++"||"--")
-        if(tokenVal[i+13]==")")
-        if(tokenVal[i+14]=="newline")
-        if(tokenVal[i+15]=="{")
+        else if(tokenName[i+2]=="id")
+            {
+            if(tokenVal[i+3]=="=")
+            if(tokenName[i+4]=="int"||"id")
+            if(tokenVal[i+5]==";")
+            if(tokenName[i+6]=="id")
+            if(tokenName[i+7]=="op" )
+            if(tokenName[i+8]=="id"||"int")
+            if(tokenVal[i+9]==";")
+            if(tokenName[i+10]=="id"||tokenName[i+1]=="int")
+            if(tokenVal[i+11]=="++"||"--")
+            if(tokenVal[i+12]==")")
+            if(tokenVal[i+13]=="newline")
+            if(tokenVal[i+14]=="{")
 
                 braceCount++;
-                i=i+16;
+                i=i+15;
                 while(tokenVal[i]!="}" ){i++;}
             if(tokenVal[i]=="}")braceCount++;
+            }
 }
         if(braceCount==2)
             return 1;

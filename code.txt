@@ -1,7 +1,7 @@
 #header {iostream}
 using namespace std;
 digit container(){
-digit  a1 ,a2 , a,num;
+digit  a1 ,,,,,,,a2 , a,num;
 output:"Enter number, for, table \n";
  input: num;
 output:"Enter value of n";
@@ -13,6 +13,6 @@ loop(digit i=1;i<n; i++)
 	output:"ans";
 	then
 	output:"neg";
-}endloop
+}
 return empty;
 }

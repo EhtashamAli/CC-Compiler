@@ -108,11 +108,11 @@ void Token::writeOperator(string op)
 }
 void Token::writeDigit(string number)
 {
-    writeToken("int", number);
+    writeToken("digit", number);
 }
 void Token::writeFloat(string number)
 {
-    writeToken("float", number);
+    writeToken("dec", number);
 }
 void Token::writeString(string word){
     writeToken("string", word);
@@ -164,7 +164,7 @@ bool Token::checkWord(string word)
                                 {
                                     if(decimalCount==1)
                                     {
-                                    cout<<"float          "<<digit<<endl;
+                                    //cout<<"dec          "<<digit<<endl;
                                     writeFloat(digit);
                                     }
                                     else if(decimalCount>1){

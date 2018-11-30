@@ -18,6 +18,12 @@
 <kw, digit>
 <id, a1 >
 <symbol, ,>
+<symbol, ,>
+<symbol, ,>
+<symbol, ,>
+<symbol, ,>
+<symbol, ,>
+<symbol, ,>
 <id, a2 >
 <symbol, ,>
 <id, a>
@@ -50,7 +56,7 @@
 <kw, digit>
 <id, i>
 <op, =>
-<int, 1>
+<digit, 1>
 <symbol, ;>
 <id, i>
 <op, <>
@@ -73,7 +79,7 @@
 <symbol, (>
 <id, ans>
 <op, >>
-<int, 0>
+<digit, 0>
 <symbol, )>
 <symbol, newline>
 <kw, output>
@@ -89,7 +95,6 @@
 <symbol, ;>
 <symbol, newline>
 <symbol, }>
-<kw, endloop>
 <symbol, newline>
 <kw, return>
 <kw, empty>
