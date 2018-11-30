@@ -50,6 +50,7 @@
 <kw, digit>
 <id, i>
 <op, =>
+<int, 1>
 <symbol, ;>
 <id, i>
 <op, <>
@@ -72,6 +73,7 @@
 <symbol, (>
 <id, ans>
 <op, >>
+<int, 0>
 <symbol, )>
 <symbol, newline>
 <kw, output>

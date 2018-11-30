@@ -144,8 +144,7 @@ bool Token::checkWord(string word)
                 char x=word[i];
                 if(word[i]==' '|| word[i]=='\t'){}
                 else {
-
-                     if(isDigit((int)x)&&(!isIdentifier(word[i-1])&&(!isSymbol(word[i+1]))))
+                     if(isDigit((int)x)&&(!isIdentifier(word[i-1])))
                     {
 
                                 if(word[i-1]=='-')
@@ -157,16 +156,15 @@ bool Token::checkWord(string word)
                                 {
                                     decimalCount++;
                                 }
-                                else
-                                {
-                                    digit+=word[i];
-                                }
+
+                                   else digit+=word[i];
+
 
                             if(!isDigit((int)word[i+1])) //writes a float
                                 {
                                     if(decimalCount==1)
                                     {
-                                    //cout<<"float          "<<digit<<endl;
+                                    cout<<"float          "<<digit<<endl;
                                     writeFloat(digit);
                                     }
                                     else if(decimalCount>1){
@@ -285,7 +283,7 @@ bool Token::checkWord(string word)
                                                     }
                                                     else
                                                     writeidentifier(tokenId); //writes identifier into file
-                                                    cout<<"identifier    "<<tokenId<<endl;
+                                                    //cout<<"identifier    "<<tokenId<<endl;
                                                 }
                                                 if(flag==2 || flag==0){
                                                 flag=0;

@@ -69,6 +69,9 @@ if(SYNTAX_FILE.is_open())
     if(S.isInput()==1){
         cout<<"input verified"<<endl;
     }
+    if(S.isLoop()==1){
+        cout<<"loop verified"<<endl;
+    }
 
     //if(S.is)
     return 0;
