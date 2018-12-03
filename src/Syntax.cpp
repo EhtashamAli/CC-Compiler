@@ -101,6 +101,13 @@ bool Syntax::isInput(){
         return 1;
     }
 }
+bool Syntax::isReturnEmpty(){
+int i=0;
+    while(tokenVal[i] != "return" ){i++;}
+    if(  tokenVal[i+1] == "empty" && tokenVal[i+2] == ";"){return 1;}
+    else cout<<"error in line: "<<i;
+return 0;
+}
 bool Syntax::isDeclaration(){
     int flag =0;
     int i=0,idCount=0;
@@ -110,32 +117,32 @@ bool Syntax::isDeclaration(){
     i++;//for declaration
     int counter=i;//to go to the digit again
 
-    while(tokenVal[counter]!="newline"){
+    while(tokenVal[counter]!=";"){
         if(tokenName[counter]=="id")
             {
             idCount++;
             }
 
             counter++;
-
     }
     while(idCount!=0)
         {
         if(tokenName[i] == "id")
             {
-            if(tokenVal[i+1]==","){idCount--;} //case 1: ,
-            else if(tokenVal[i+1]==";") {flag++;idCount--;} //case2: ;
+            if((tokenVal[i+1]==",") && (tokenName[i+2]=="id")){idCount--;}//case 1: ,
+            else if(tokenVal[i+1]==";" && tokenVal[i+2]=="newline") {flag++;idCount--;} //case2: ;
             else if(tokenVal[i+1]=="=")
-                { //case3: =
+                {
                 if(tokenName[i+2]=="id"||"digit"){
                 if(tokenVal[i+3]==","){idCount--;}
-                else if(tokenVal[i+3]==";")
-                    flag++;}
-                else  {return 0;}
+                else if(tokenVal[i+3]==";"&& tokenVal[i+4]=="newline")
+                    flag++;
+                }else  {return 0;}
                 }
+            else{return 0;}
             }
             i++;
-            if(tokenVal[i]==" ")i++;
+              if(tokenVal[i]==" ")i++;
         }
         if(flag>0)return 1;
 
@@ -231,12 +238,12 @@ bool Syntax::isIF_ELSE() {
                                                 if(tokenVal[i] == "}"){count += 1;}
                                         }else {
                                             Error = true;
-                                            cout<< "ERROR ON TOKEN:"<<i<<endl;
+                                            cout<< "ERROR ON LINE:"<<i<<endl;
                                             continue;
                                         }
                                     }else {
                                         Error = true;
-                                        cout<< "ERROR ON TOKEN:"<<i<<endl;
+                                        cout<< "ERROR ON LINE:"<<i<<endl;
                                         continue;
                                     }
                                 }else {
@@ -276,22 +283,23 @@ bool Syntax::isIF_ELSE() {
     if((Error) || (count%2 != 0)) {cout << "Error in if else"; return 0;}
     else return 1;
 }
+
 bool Syntax::isLoop(){
-    int flag =0;
-    string name;
-    int i=0,idCount=0,count=0;
+
+    bool Error = false;
+    int count = 0 ;
+    int flag = 0;
+    for(int i=0 ; i < totalTokens ; i++){
+    int idCount=0;
     while(tokenVal[i]!="loop"){i++;}
-
-
 //for declaration
     int counter=i+1;//to go to the digit again
     int braceCount=0;
-
     while(braceCount!=2)
         {
         if(tokenVal[i] =="loop")
-        if(tokenVal[i+1] =="(" )
-        if(tokenVal[i+2] =="digit"||tokenVal[i+2] =="dec")
+            if(tokenVal[i+1] =="(" )
+            if(tokenVal[i+2] =="digit"||tokenVal[i+2] =="dec")
         {
                     if(tokenName[i+3] =="id")
                     if(tokenVal[i+4]=="=")
@@ -307,10 +315,11 @@ bool Syntax::isLoop(){
                     if(tokenVal[i+14]=="newline")
                     if(tokenVal[i+15]=="{")
 
-                        braceCount++;
+                        braceCount+=1;
                         i=i+16;
-                        while(tokenVal[i]!="}" ){i++;}
-                    if(tokenVal[i]=="}")braceCount++;
+                        while((tokenVal[i]!="}") || ((tokenVal[i]!="return")&&(tokenVal[i+1]!="empty"))){i++;}
+            if(tokenVal[i]=="}")braceCount++;
+            else cout<<"error in line: "<<i; return 0;
         }
         else if(tokenName[i+2]=="id")
             {
@@ -326,16 +335,17 @@ bool Syntax::isLoop(){
             if(tokenVal[i+12]==")")
             if(tokenVal[i+13]=="newline")
             if(tokenVal[i+14]=="{")
-
                 braceCount++;
                 i=i+15;
-                while(tokenVal[i]!="}" ){i++;}
+                while((tokenVal[i]!="}") || ((tokenVal[i]!="return")&&(tokenVal[i+1]!="empty"))){i++;}
             if(tokenVal[i]=="}")braceCount++;
+            else cout<<"error in line: "<<i; return 0;
             }
 }
-        if(braceCount==2)
+        if((braceCount%2 == 0))
             return 1;
 return 0;
+}
 }
 void Syntax::tokenParse(string token , int j){
     string name;
@@ -361,3 +371,4 @@ void Syntax::tokenParse(string token , int j){
     tokenName[j+1]="\0";
     tokenVal[j+1]="\0";
 }
+

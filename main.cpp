@@ -6,7 +6,9 @@
 
 using namespace std;
 
-//...........................................//
+
+
+//..........................................//
 int main () {
     string line;
     Token t;
@@ -74,6 +76,9 @@ if(SYNTAX_FILE.is_open())
     }
     if(S.isLoop()==1){
         cout<<"loop verified"<<endl;
+    }
+    if(S.isReturnEmpty()==1){
+        cout<<"return empty verified"<<endl;
     }
 
 

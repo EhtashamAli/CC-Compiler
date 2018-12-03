@@ -159,12 +159,11 @@ bool Token::checkWord(string word)
 
                                    else digit+=word[i];
 
-
                             if(!isDigit((int)word[i+1])) //writes a float
                                 {
                                     if(decimalCount==1)
                                     {
-                                    //cout<<"dec          "<<digit<<endl;
+                                    cout<<"float          "<<digit<<endl;
                                     writeFloat(digit);
                                     }
                                     else if(decimalCount>1){
@@ -173,7 +172,7 @@ bool Token::checkWord(string word)
                                         }
                                     else
                                     {
-                                        //cout<<"decimal    "<<digit<<endl;
+                                        cout<<"decimal    "<<digit<<endl;
                                         writeDigit(digit); //writes  a decimal
 
                                     }
@@ -253,14 +252,17 @@ bool Token::checkWord(string word)
                                 }
                         }
                         else{ //keyword and identifier check
+                                if(1==isSymbol(word[i]))break;
+                            else
                                if(((flag==0)||(flag==2))&& isIdentifier(word[i]))
                                 {
-                                    //if((word[i]!=',')||(word[i]!= '=')){
+
 
                                         if ((word[i+1]>='0')&&(word[i+1]<='9')){//if ientifier ha a number
+
                                             tokenId+= word[i];
-                                            tokenId+= word[i+1]; //adds character into identifier string
-                                            i=i+2;
+                                           // tokenId+= word[i+1]; //adds character into identifier string
+                                            i=i+1;
                                             }
 
                                             tokenId+= word[i]; //adds character into identifier string
@@ -269,10 +271,8 @@ bool Token::checkWord(string word)
                                             {
                                                 if(isKeyword(tokenId))
                                                 {
-
                                                     //cout<<"keyword      "<<tokenId<<endl;
                                                     writeKeyword(tokenId); //writes keyword into file
-
                                                 }
                                                 else
                                                 {
@@ -283,7 +283,7 @@ bool Token::checkWord(string word)
                                                     }
                                                     else
                                                     writeidentifier(tokenId); //writes identifier into file
-                                                    //cout<<"identifier    "<<tokenId<<endl;
+                                                    cout<<"identifier    "<<tokenId<<endl;
                                                 }
                                                 if(flag==2 || flag==0){
                                                 flag=0;

@@ -29,6 +29,7 @@ class Syntax
     bool isInput();
     bool isLoop();
     bool isIF_ELSE();
+    bool isReturnEmpty();
     void tokenParse(string,int);
 
 

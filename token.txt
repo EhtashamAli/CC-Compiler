@@ -16,24 +16,14 @@
 <symbol, {>
 <symbol, newline>
 <kw, digit>
-<id, a1 >
+<id, a1>
 <symbol, ,>
-<symbol, ,>
-<symbol, ,>
-<symbol, ,>
-<symbol, ,>
-<symbol, ,>
-<symbol, ,>
-<id, a2 >
-<symbol, ,>
-<id, a>
-<symbol, ,>
-<id, num>
+<id, a2>
 <symbol, ;>
 <symbol, newline>
 <kw, output>
 <symbol, :>
-<string, Enter number, for, table \n>
+<string, Enter number, for, table >
 <symbol, ;>
 <symbol, newline>
 <kw, input>
@@ -74,6 +64,7 @@
 <op, *>
 <id, @1num>
 <symbol, ;>
+<symbol, }>
 <symbol, newline>
 <kw, this>
 <symbol, (>
@@ -94,7 +85,6 @@
 <string, neg>
 <symbol, ;>
 <symbol, newline>
-<symbol, }>
 <symbol, newline>
 <kw, return>
 <kw, empty>
